@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@layer base {
+  @font-face {
+    font-family: Satoshi;
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+    src: url("/fonts/Satoshi-Black.otf") format("opentype");
+  }
+}
+
+@theme {
+  --font-satoshi: "Satoshi", sans-serif;
+}
+
+.hero {
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("./img/hero.jpg");
+}
+
+.play-btn {
+  animation: inout 1s ease infinite;
+}
+
+@keyframes inout {
+  0% {
+    -webkit-box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.4);
+    -moz-box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 16px rgba(255, 255, 255, 0);
+    -moz-box-shadow: 0 0 0 16px rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 16px rgba(255, 255, 255, 0);
+  }
+}
