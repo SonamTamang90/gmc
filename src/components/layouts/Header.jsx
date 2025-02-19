@@ -1,15 +1,16 @@
 import Logo from "../ui/Logo";
-import Container from "./Container";
-import Navigation from "./Navigation";
+import Container from "../ui/Container";
+import Navigation from "../ui/Navigation";
+import Button from "../ui/Button";
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 w-full z-50 py-4">
+    <header className="fixed top-0 left-0 z-50 w-full py-4">
       <Container>
-        <div className="flex items-center justify-between">
+        <div className="hidden items-center justify-between lg:flex">
           <Logo />
           <Navigation />
-          <div>&nbsp;</div>
+          <Button variant="outline" size="medium" text="Join us" />
         </div>
       </Container>
     </header>
