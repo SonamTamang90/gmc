@@ -1,47 +1,18 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"); */
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&display=swap");
+
+@font-face {
+  font-family: "Piximisa";
+  src: url("/fonts/Piximisa.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 @import "tailwindcss";
 
-@layer base {
-  @font-face {
-    font-family: Satoshi;
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-    src: url("/fonts/Satoshi-Black.otf") format("opentype");
-  }
-}
-
 @theme {
   --font-manrope: "Manrope", sans-serif;
-  --font-satoshi: "Satoshi", sans-serif;
-}
+  --font-bebas: "Piximisa", sans-serif;
 
-.shiny-text {
-  color: #e1e0e0a4; /* Adjust this color to change intensity/style */
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 40%,
-    rgba(255, 255, 255, 0.8) 50%,
-    rgba(255, 255, 255, 0) 60%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  display: inline-block;
-  animation: shine 5s linear infinite;
-}
-
-@keyframes shine {
-  0% {
-    background-position: 100%;
-  }
-  100% {
-    background-position: -100%;
-  }
-}
-
-.shiny-text.disabled {
-  animation: none;
+  --color-primary: #111c4e;
 }
