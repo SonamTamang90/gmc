@@ -7,6 +7,7 @@ const Button = ({
   size = "medium",
   icon = null,
   text = "",
+  onClick = () => {},
 }) => {
   const baseStyles =
     "inline-flex items-center justify-center font-semibold transition-colors focus:outline-none disabled:opacity-50 disabled:pointer-events-none cursor-pointer";
@@ -21,18 +22,19 @@ const Button = ({
 
   const sizes = {
     small: "h-8 px-3",
-    medium: "h-10 px-4",
+    medium: "h-10",
     large: "h-11 px-11",
   };
 
   return (
     <button
+      onClick={onClick}
       type={type}
       disabled={disabled}
-      className={` ${baseStyles} ${variants[variant]} ${sizes[size]} ${className} `}
+      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className} `}
     >
-      <span>{icon && icon}</span>
       <span>{text}</span>
+      <span>{icon && icon}</span>
     </button>
   );
 };

@@ -8,11 +8,20 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "SilkSerif";
+  src: url("/fonts/SilkSerif-TRIAL-Regular-BF6740066e17571.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import "tailwindcss";
 
 @theme {
   --font-manrope: "Manrope", sans-serif;
-  --font-bebas: "Piximisa", sans-serif;
+  --font-bebas: "SilkSerif", sans-serif;
 
   --color-primary: #111c4e;
 }
