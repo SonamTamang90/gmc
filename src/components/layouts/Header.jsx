@@ -10,7 +10,12 @@ const Header = () => {
         <div className="hidden items-center justify-between lg:flex">
           <Logo />
           <Navigation />
-          <Button variant="outline" size="medium" text="Join us" />
+          <Button
+            variant="outline"
+            size="medium"
+            text="Join us"
+            className="px-8"
+          />
         </div>
       </Container>
     </header>
