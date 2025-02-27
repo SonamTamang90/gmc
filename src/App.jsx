@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import GlobalLayout from "./components/layouts/GlobalLayout";
+import RootLayout from "./layouts/RootLayout";
 import Home from "./pages/Home";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<GlobalLayout />}>
-          <Route path="/" element={<Home />} />
+        <Route element={<RootLayout />}>
+          <Route index element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>

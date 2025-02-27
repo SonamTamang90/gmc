@@ -1,104 +1,199 @@
-import CircularText from "../components/animations/CircularText";
-import FollowCursor from "../components/animations/FollowCursor";
-import InfiniteScrollText from "../components/animations/InfiniteScroll";
-import Container from "../components/ui/Container";
-import { BiSolidQuoteRight } from "react-icons/bi";
-import VideoBackground from "../components/VideoBackground";
-import { useState } from "react";
+import { HiOutlineArrowDown, HiOutlinePlay } from "react-icons/hi2";
+import { BiSolidQuoteLeft } from "react-icons/bi";
+import Container from "../ui/Container";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Button from "../ui/Button";
 
-const Hero = () => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+const HeroSection = ({ scrollYProgress }) => {
+  // Create transform values based on scroll
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.3, 0.8], [1, 0.5, 0]);
+  const textY = useTransform(scrollYProgress, [0, 0.3], [0, -30]);
 
-  const handlePlayClick = () => {
-    console.log("Play button clicked");
-    setIsVideoPlaying(true);
-  };
-
-  const handleVideoClose = () => {
-    setIsVideoPlaying(false);
-  };
+  // This will hide the entire hero section when scrolled near the bottom
+  const heroVisibility = useTransform(
+    scrollYProgress,
+    [0, 0.7, 0.8],
+    ["visible", "visible", "hidden"],
+  );
 
   return (
-    <section id="hero" className="relative h-screen">
-      <div className="absolute inset-0 h-full w-full">
-        <video autoPlay muted loop className="size-full object-cover">
-          <source src="/videos/hero.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div className="to-primary/60 absolute inset-0 bg-gradient-to-b from-transparent to-90%" />
-
-      {/* Hero content */}
-      <div className="absolute bottom-8 w-full">
-        <Container>
-          <div className="text-white">
-            <h1 className="font-bebas mb-3 tracking-wider md:text-5xl">
-              Gelephu Mindfulness City
-            </h1>
-            <p className="max-w-md">
-              An innovative urban development project that integrates economic
-              growth with mindfulness, holistic living, and sustainability.
-            </p>
+    <motion.section
+      className="fixed inset-0 h-screen w-full overflow-x-hidden"
+      style={{
+        opacity: heroOpacity,
+        visibility: heroVisibility,
+      }}
+    >
+      <div className="to-primary/70 absolute inset-0 z-10 size-full bg-linear-to-b from-transparent to-130%" />
+      <video
+        autoPlay
+        muted
+        loop
+        className="absolute inset-0 size-full object-cover"
+      >
+        <source src="/videos/hero.mp4" type="video/mp4" />
+      </video>
+      <motion.div
+        className="relative z-20 flex h-full items-end px-11 pb-11"
+        style={{ y: textY }}
+      >
+        <div className="w-full">
+          <h1 className="mb-3 text-3xl font-bold tracking-widest uppercase">
+            Gelephu Mindfullness City
+          </h1>
+          <p className="max-w-lg">
+            Innovative urban development project that integrates economic growth
+            with mindfulness, holistic living, and sustainability.
+          </p>
+          <div className="mt-5 flex w-full items-center gap-3 border-t border-white/20 pt-3">
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+            >
+              <HiOutlineArrowDown />
+            </motion.div>
+            <span>Scroll down to learn more</span>
           </div>
-          <div className="my-6 w-full border-t border-white/40" />
-        </Container>
-        <InfiniteScrollText
-          text="Sustainable • Mindful • Spiritual • Nature • "
-          duration={25}
-          className="text-5xl font-thin text-white"
-        />
-      </div>
-      <FollowCursor onPlayClick={handlePlayClick} />
-      <VideoBackground isPlaying={isVideoPlaying} onClose={handleVideoClose} />
-    </section>
+        </div>
+      </motion.div>
+    </motion.section>
   );
 };
 
-const About = () => {
+const ContentSection = () => {
   return (
-    <section className="py-24">
-      <Container>
-        <div className="">
-          <div className="mb-11">
-            <h2 className="mb-6 max-w-xl text-3xl tracking-wider">
-              Gelephu Mindfulness City is a Special Administrative Region in
-              Bhutan, envisioned by His Majesty{" "}
-              <span className="text-primary font-bold">
-                King Jigme Singye Wangchuck.
-              </span>
+    <div
+      className="relative z-30 w-full rounded-t-2xl bg-white"
+      style={{ marginTop: "100vh" }}
+    >
+      {/* About Section */}
+      <section className="w-full py-20">
+        <Container>
+          <div className="text-dark-600 mb-11">
+            <h2 className="mb-8 max-w-2xl text-2xl">
+              Bhutan’s commitment to sustainable development, rich cultural
+              heritage, and strong governance, positions the City as a global
+              leader in mindful and sustainable urban growth envisioned by His
+              Majesty King Jigme Sigye Wangchuck.
             </h2>
-            <p className="max-w-sm">
-              <span className="text-2xl">
-                <BiSolidQuoteRight />
-              </span>{" "}
-              Gelephu will become a gateway connecting Bhutan to the world and
-              the future. The road we have chosen is a gateway to the world – to
-              markets, capital, new ideas, knowledge, and technology towards our
-              future, and to chart our destiny.
-            </p>
+            <blockquote className="max-w-lg">
+              <BiSolidQuoteLeft size={28} className="text-primary/10 mb-3" />
+              <p>
+                Gelephu will become a gateway connecting Bhutan to the world and
+                the future. The road we have chosen is a gateway to the world –
+                to markets, capital, new ideas, knowledge, and technology
+                towards our future, and to chart our destiny.
+              </p>
+            </blockquote>
           </div>
-          <div className="relative">
-            <img src="/images/about.jpg" alt="about" />
-            <div className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 transform">
-              <CircularText
-                text="MINDFUL*SUSTAINABLE*NATURE*"
-                onHover="speedUp"
-                spinDuration={20}
-                className="custom-class"
-              />
+          <div className="flex h-[60vh] items-center justify-center rounded-2xl bg-[url(/images/about.jpg)] bg-cover bg-center">
+            <Button className="flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-lg backdrop-blur-md transition-all duration-300 hover:bg-white/20">
+              <HiOutlinePlay size={36} className="text-white" />
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+      <section className="pb-20">
+        <Container>
+          <div className="text-dark-600">
+            <h2 className="mb-11 max-w-lg text-lg">
+              <span className="font-bold">Economic Growth,</span>{" "}
+              <span className="font-bold">Strong Governance,</span> and{" "}
+              <span className="font-bold">Spirituality Converge</span> to set a
+              new global standard for sustainable and harmonious urban
+              development.
+            </h2>
+            <div className="">
+              <div className="flex items-start gap-20 border-y border-zinc-400/40 py-6">
+                <div className="flex items-start gap-16">
+                  <p className="text-lg text-zinc-400">01</p>
+                  <div>
+                    <h3 className="mb-6 text-xl font-semibold">
+                      Economic Growth
+                    </h3>
+                    <p className="max-w-sm text-zinc-600">
+                      Aker is a vertically integrated operating platform that
+                      invests in communities bridging urban living with the
+                      outdoors. We empower high-performing teams to deliver
+                      lasting value for residents and the broader community.
+                    </p>
+                  </div>
+                </div>
+                <div className="">
+                  <img
+                    src="/images/engage-1.png"
+                    alt=""
+                    className="aspect-square rounded-2xl object-cover"
+                  />
+                </div>
+              </div>
+              <div className="flex items-start gap-20 border-b border-zinc-400/40 py-6">
+                <div className="flex items-start gap-16">
+                  <p className="text-lg text-zinc-400">02</p>
+                  <div>
+                    <h3 className="mb-6 text-xl font-semibold">
+                      Advanced Infrastructure
+                    </h3>
+                    <p className="max-w-sm text-zinc-600">
+                      Aker is a vertically integrated operating platform that
+                      invests in communities bridging urban living with the
+                      outdoors. We empower high-performing teams to deliver
+                      lasting value for residents and the broader community.
+                    </p>
+                  </div>
+                </div>
+                <div className="">
+                  <img
+                    src="/images/engage-2.png"
+                    alt=""
+                    className="aspect-square rounded-2xl object-cover"
+                  />
+                </div>
+              </div>
+              <div className="flex items-start gap-20 border-b border-zinc-400/40 py-6">
+                <div className="flex items-start gap-16">
+                  <p className="text-lg text-zinc-400">03</p>
+                  <div>
+                    <h3 className="mb-6 text-xl font-semibold">
+                      Strong Governance
+                    </h3>
+                    <p className="max-w-sm text-zinc-600">
+                      Aker is a vertically integrated operating platform that
+                      invests in communities bridging urban living with the
+                      outdoors. We empower high-performing teams to deliver
+                      lasting value for residents and the broader community.
+                    </p>
+                  </div>
+                </div>
+                <div className="">
+                  <img
+                    src="/images/engage-3.png"
+                    alt=""
+                    className="aspect-square rounded-2xl object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </Container>
-    </section>
+        </Container>
+      </section>
+
+      <section className="bg-primary pb-20"></section>
+    </div>
   );
 };
 
 const Home = () => {
+  // Track scroll progress for the entire page
+  const { scrollYProgress } = useScroll();
+  console.log(scrollYProgress);
+
   return (
-    <>
-      <Hero />
-      <About />
-    </>
+    <div>
+      <HeroSection scrollYProgress={scrollYProgress} />
+      <ContentSection />
+    </div>
   );
 };
 
