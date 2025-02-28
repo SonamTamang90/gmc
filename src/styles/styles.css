@@ -1,22 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&display=swap");
-
-@font-face {
-  font-family: "Piximisa";
-  src: url("/fonts/Piximisa.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "SilkSerif";
-  src: url("/fonts/SilkSerif-TRIAL-Regular-BF6740066e17571.ttf")
-    format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 @import "tailwindcss";
 
 @theme {
