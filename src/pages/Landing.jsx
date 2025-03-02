@@ -82,7 +82,7 @@ const AboutSection = () => {
   return (
     <section className="py-24">
       <Container>
-        <h2 className="mb-11 max-w-3xl text-3xl">
+        <h2 className="mb-11 max-w-3xl text-2xl">
           Bhutan&apos;s commitment to sustainable development, rich cultural
           heritage, and strong governance, positions the City as a global leader
           in mindful and sustainable urban growth envisioned by His Majesty King
@@ -107,12 +107,12 @@ const CommitmentSection = () => {
     <section className="pb-24">
       <Container>
         <Divider backgroundColor="bg-black/20" />
-        <h2 className="mb-5 text-3xl">Bhutan Commitment&apos;s</h2>
-        <p className="max-w-sm text-zinc-600">
+        <h2 className="mb-5 text-2xl">Bhutan Commitment&apos;s</h2>
+        {/* <p className="max-w-sm text-zinc-600">
           Commitment to sustainable development, rich cultural heritage, and
           strong governance, positions the City as a global leader in mindful
           and sustainable urban growth.
-        </p>
+        </p> */}
 
         {/* Lists of commitment's */}
         <div className="mt-18">
@@ -122,7 +122,7 @@ const CommitmentSection = () => {
             <div className="flex w-full flex-col md:w-auto md:flex-row md:gap-11">
               <p className="mb-2 text-lg text-zinc-400 md:mb-0">01</p>
               <div className="max-w-full space-y-4 md:max-w-xs md:space-y-5">
-                <h3 className="text-xl font-semibold md:text-2xl">
+                <h3 className="text-xl font-semibold md:text-xl">
                   Holistic Development
                 </h3>
                 <p className="dark:text-dark-600 text-gray-700">
@@ -149,7 +149,7 @@ const CommitmentSection = () => {
             <div className="flex w-full flex-col md:w-auto md:flex-row md:gap-11">
               <p className="mb-2 text-lg text-zinc-400 md:mb-0">02</p>
               <div className="max-w-full space-y-4 md:max-w-xs md:space-y-5">
-                <h3 className="text-xl font-semibold md:text-2xl">
+                <h3 className="text-xl font-semibold md:text-xl">
                   Distinctive Approach
                 </h3>
                 <p className="dark:text-dark-600 text-gray-700">
@@ -177,7 +177,7 @@ const CommitmentSection = () => {
             <div className="flex w-full flex-col md:w-auto md:flex-row md:gap-11">
               <p className="mb-2 text-lg text-zinc-400 md:mb-0">03</p>
               <div className="max-w-full space-y-4 md:max-w-xs md:space-y-5">
-                <h3 className="text-xl font-semibold md:text-2xl">
+                <h3 className="text-xl font-semibold md:text-xl">
                   A New Global Modal
                 </h3>
                 <p className="dark:text-dark-600 text-gray-700">
