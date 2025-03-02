@@ -2,12 +2,14 @@ import { HiChevronDoubleDown } from "react-icons/hi2";
 import { FaQuoteLeft } from "react-icons/fa";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Container from "../ui/Container";
 import Divider from "../ui/Divider";
 import { useRef } from "react";
+import CoreIndustriesSection from "./CoreIndustries";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
   const arrowDownIconRef = useRef(null);
@@ -82,10 +84,56 @@ const HeroSection = () => {
 };
 
 const AboutSection = () => {
+  const aboutSectionRef = useRef(null);
+  const aboutTitleRef = useRef(null);
+  const aboutIntroRef = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        aboutTitleRef.current,
+        {
+          color: "#9f9fa9",
+        },
+        {
+          color: "#000000",
+          duration: 1.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: aboutSectionRef.current,
+            start: "top 80%",
+            end: "top 30%",
+            scrub: 0.5,
+          },
+        },
+      );
+
+      gsap.fromTo(
+        aboutIntroRef.current,
+        {
+          y: -100,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          delay: 0.6,
+          scrollTrigger: {
+            trigger: aboutSectionRef.current,
+            start: "top 90%",
+            end: "top 30%",
+            scrub: 0.5,
+          },
+        },
+      );
+    },
+    { scope: aboutSectionRef },
+  );
+
   return (
-    <section className="py-24">
+    <section className="py-24" ref={aboutSectionRef}>
       <Container>
-        <h2 className="mb-11 max-w-3xl text-2xl">
+        <h2 className="mb-11 max-w-3xl text-2xl" ref={aboutTitleRef}>
           Bhutan&apos;s commitment to sustainable development, rich cultural
           heritage, and strong governance, positions the City as a global leader
           in mindful and sustainable urban growth envisioned by His Majesty King
@@ -93,7 +141,7 @@ const AboutSection = () => {
         </h2>
         <blockquote>
           <FaQuoteLeft size={28} className="text-zinc-400/20" />
-          <p className="mt-5 max-w-sm text-zinc-600">
+          <p ref={aboutIntroRef} className="mt-5 max-w-sm text-zinc-600">
             Gelephu will become a gateway connecting Bhutan to the world and the
             future. The road we have chosen is a gateway to the world – to
             markets, capital, new ideas, knowledge, and technology towards our
@@ -106,10 +154,36 @@ const AboutSection = () => {
 };
 
 const CommitmentSection = () => {
+  const commitmentSectionRef = useRef(null);
+  const dividerRef = useRef(null);
+
+  useGSAP(() => {
+    gsap.fromTo(
+      dividerRef.current,
+      {
+        width: "36px",
+        opacity: 0,
+      },
+      {
+        width: "100%",
+        opacity: 1,
+        duration: 3,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: dividerRef.current,
+          start: "top 85%",
+          end: "top 60%",
+          scrub: 0.5,
+          toggleActions: "play none none none",
+        },
+      },
+    );
+  });
+
   return (
-    <section className="pb-24">
+    <section className="pb-24" ref={commitmentSectionRef}>
       <Container>
-        <Divider backgroundColor="bg-black/20" />
+        <div className="my-5 h-px bg-black/20" ref={dividerRef} />
         <h2 className="mb-5 text-2xl">Bhutan Commitment&apos;s</h2>
         {/* <p className="max-w-sm text-zinc-600">
           Commitment to sustainable development, rich cultural heritage, and
@@ -207,15 +281,27 @@ const CommitmentSection = () => {
   );
 };
 
-const Landing = () => {
+const Test = () => {
   return (
-    <>
+    <section className="bg-primary h-screen">
+      <div></div>
+    </section>
+  );
+};
+
+const Landing = () => {
+  const containerRef = useRef(null);
+
+  return (
+    <div ref={containerRef}>
       <HeroSection />
       <div className="relative mt-[100vh] h-full rounded-tl-2xl rounded-tr-2xl bg-white">
         <AboutSection />
         <CommitmentSection />
+        <CoreIndustriesSection />
+        <Test />
       </div>
-    </>
+    </div>
   );
 };
 
