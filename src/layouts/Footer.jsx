@@ -13,7 +13,7 @@ const Footer = () => {
     <footer className="">
       <Divider backgroundColor="bg-black/10 mx-6" />
       <p className="mt-3 pr-14 text-right text-xs text-gray-600">
-        Copyright © 2024 Gelephu Mindfulness City
+        Copyright &copy; 2024 Gelephu Mindfulness City
       </p>
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-6">
         <div className="grid grid-cols-1 gap-16 pb-16 md:grid-cols-2">
