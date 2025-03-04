@@ -6,15 +6,12 @@ import {
   FaLinkedin,
 } from "react-icons/fa6";
 import { Link } from "react-router";
-
-// Assuming Divider component exists
-const Divider = ({ backgroundColor }) => (
-  <div className={`h-px w-full ${backgroundColor}`}></div>
-);
+import Divider from "../ui/Divider";
 
 const Footer = () => {
   return (
-    <footer className="mt-16 border-t border-black/10">
+    <footer className="">
+      <Divider backgroundColor="bg-black/10 mx-6" />
       <p className="mt-3 pr-14 text-right text-xs text-gray-600">
         Copyright © 2024 Gelephu Mindfulness City
       </p>
