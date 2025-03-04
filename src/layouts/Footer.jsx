@@ -48,9 +48,14 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder="Your email address"
+                  aria-label="Email for newsletter"
                   className="flex-grow rounded-l-md border border-gray-300 px-4 py-3 text-sm focus:border-blue-900 focus:ring-1 focus:ring-blue-900 focus:outline-none"
                 />
-                <button className="rounded-r-md bg-blue-900 px-4 py-2 text-white transition duration-200 hover:bg-blue-800">
+                <button
+                  aria-label="Subscribe"
+                  type="button"
+                  className="rounded-r-md bg-blue-900 px-4 py-2 text-white transition duration-200 hover:bg-blue-800"
+                >
                   <FaRegPaperPlane size={16} />
                 </button>
               </div>
