@@ -8,6 +8,9 @@ import Container from "../ui/Container";
 import Divider from "../ui/Divider";
 import { useRef } from "react";
 import CoreIndustriesSection from "./CoreIndustries";
+import PartnersCarousel from "../components/InfiniteCarousel";
+import Footer from "../layouts/Footer";
+import Header from "../layouts/Header";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,7 +49,7 @@ const HeroSection = () => {
   });
 
   return (
-    <section className="fixed inset-0 h-screen w-full">
+    <section className="fixed top-0 left-0 h-screen w-full">
       <video
         autoPlay
         muted
@@ -72,7 +75,7 @@ const HeroSection = () => {
             An innovative urban development project that integrates economic
             growth with mindfulness, holistic living, and sustainability. 
           </p>
-          <Divider backgroundColor="bg-white/60" />
+          <Divider backgroundColor="bg-white/60 my-5" />
           <div className="flex items-center gap-3">
             <HiChevronDoubleDown size={20} ref={arrowDownIconRef} />
             <p>Scroll down to learn more</p>
@@ -185,15 +188,10 @@ const CommitmentSection = () => {
       <Container>
         <div className="my-5 h-px bg-black/20" ref={dividerRef} />
         <h2 className="mb-5 text-2xl">Bhutan Commitment&apos;s</h2>
-        {/* <p className="max-w-sm text-zinc-600">
-          Commitment to sustainable development, rich cultural heritage, and
-          strong governance, positions the City as a global leader in mindful
-          and sustainable urban growth.
-        </p> */}
 
         {/* Lists of commitment's */}
         <div className="mt-18">
-          <Divider backgroundColor="bg-black/10" />
+          <Divider backgroundColor="bg-black/10 my-5" />
           {/* Commitment One */}
           <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-16">
             <div className="flex w-full flex-col md:w-auto md:flex-row md:gap-11">
@@ -212,7 +210,7 @@ const CommitmentSection = () => {
 
             <div className="h-auto w-full overflow-hidden rounded-lg md:h-[250px] md:w-[400px]">
               <img
-                src="/images/commitment-1.png"
+                src="/images/engage-1.png"
                 alt="Holistic Development in Bhutan"
                 className="h-full w-full object-cover object-center"
                 loading="lazy"
@@ -220,7 +218,7 @@ const CommitmentSection = () => {
             </div>
           </div>
           {/* Commitment One */}
-          <Divider backgroundColor="bg-black/10" />
+          <Divider backgroundColor="bg-black/10 my-5" />
           {/* Commitment Two */}
           <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-16">
             <div className="flex w-full flex-col md:w-auto md:flex-row md:gap-11">
@@ -248,7 +246,7 @@ const CommitmentSection = () => {
             </div>
           </div>
           {/* Commitment Two */}
-          <Divider backgroundColor="bg-black/10" />
+          <Divider backgroundColor="bg-black/10 my-5" />
           {/* Commitment Three */}
           <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-16">
             <div className="flex w-full flex-col md:w-auto md:flex-row md:gap-11">
@@ -281,10 +279,17 @@ const CommitmentSection = () => {
   );
 };
 
-const Test = () => {
+const PartnersSection = () => {
   return (
-    <section className="bg-primary h-screen">
-      <div></div>
+    <section className="pt-16 pb-11">
+      <Container>
+        <Divider backgroundColor="bg-black/10 mb-2" />
+        <p className="mb-5 text-xs text-zinc-600">City Development Expertise</p>
+        <h2 className="mb-18 max-w-3xl text-4xl">Our Partner&apos;s</h2>
+        <div>
+          <PartnersCarousel />
+        </div>
+      </Container>
     </section>
   );
 };
@@ -294,12 +299,14 @@ const Landing = () => {
 
   return (
     <div ref={containerRef}>
+      <Header />
       <HeroSection />
       <div className="relative mt-[100vh] h-full rounded-tl-2xl rounded-tr-2xl bg-white">
         <AboutSection />
         <CommitmentSection />
         <CoreIndustriesSection />
-        <Test />
+        <PartnersSection />
+        <Footer />
       </div>
     </div>
   );

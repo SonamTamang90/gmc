@@ -159,7 +159,7 @@ const CoreIndustriesSection = () => {
         {/* Small stars effect could be added with absolutely positioned divs */}
 
         <div className="relative mx-auto max-w-7xl px-6 pt-3 text-white">
-          <Divider backgroundColor="bg-white/40" />
+          <Divider backgroundColor="bg-white/40 my-5" />
           <h2 className="mb-5 text-2xl">Core Industries</h2>
           <p className="max-w-xs">
             GMC ensures that every facet of life and business thrives in harmony

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 const Divider = ({ backgroundColor }) => {
-  return <div className={`${backgroundColor} my-5 h-px`} />;
+  return <div className={`${backgroundColor} h-px`} />;
 };
 
 Divider.propTypes = {
