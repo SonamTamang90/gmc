@@ -56,10 +56,7 @@ const HeroSection = () => {
         loop
         className="absolute inset-0 size-full object-cover"
       >
-        <source
-          src="https://mznkagafiuklqiwqrrok.supabase.co/storage/v1/object/public/videos//hero.webm"
-          type="video/webm"
-        />
+        <source src="./images/hero.mp4" type="video/webm" />
       </video>
       <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/60" />
 
