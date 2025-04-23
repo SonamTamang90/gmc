@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import RootLayout from "./layouts/RootLayout";
-import Landing from "./pages/Landing";
+import GlobalLayout from "./components/layouts/GlobalLayout";
+import Landing from "./pages/landing/index";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<RootLayout />}>
+        <Route element={<GlobalLayout />}>
           <Route index element={<Landing />} />
         </Route>
       </Routes>

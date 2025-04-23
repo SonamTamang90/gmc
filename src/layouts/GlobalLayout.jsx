@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 import Header from "./Header";
-const RootLayout = () => {
+const GlobalLayout = () => {
   return (
     <div className="size-full">
       <Header />
@@ -11,4 +11,4 @@ const RootLayout = () => {
   );
 };
 
-export default RootLayout;
+export default GlobalLayout;
