@@ -26,12 +26,19 @@ const ANIMATION_CONFIG = {
     ease: "sine.inOut",
     yoyo: true,
   },
+
+  line: {
+    width: "0%",
+    duration: 1.2,
+    ease: "sine.inOut",
+  },
 };
 
 const HeroSection = () => {
   const heroTextRef = useRef(null);
   const paragraphRef = useRef(null);
   const arrowDownIconRef = useRef(null);
+  const lineRef = useRef(null);
 
   useGSAP(() => {
     const tl = gsap.timeline();
@@ -39,12 +46,13 @@ const HeroSection = () => {
     tl.from(heroTextRef.current, ANIMATION_CONFIG.heroText);
     tl.from(paragraphRef.current, ANIMATION_CONFIG.paragraph);
     tl.from(arrowDownIconRef.current, ANIMATION_CONFIG.arrowDown);
+    tl.from(lineRef.current, ANIMATION_CONFIG.line);
   }, []);
 
   return (
     <section className="sticky top-0 left-0 h-[550px] md:h-screen">
       <div className="absolute inset-0 size-full">
-        <video className="size-full object-cover">
+        <video muted autoPlay loop className="size-full object-cover">
           <source src="/hero.mp4" type="video/mp4" />
         </video>
       </div>
@@ -61,7 +69,7 @@ const HeroSection = () => {
             An innovative urban development project that integrates economic
             growth with mindfulness, holistic living, and sustainability.
           </p>
-          <div className="my-6 h-px w-full bg-white/15" />
+          <div ref={lineRef} className="my-6 h-px w-full bg-white/15" />
           <div className="flex items-center gap-2 text-white">
             <HiChevronDoubleDown size={20} ref={arrowDownIconRef} />
             <p>Scroll down to learn more</p>
