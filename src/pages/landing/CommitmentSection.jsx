@@ -126,7 +126,7 @@ const CommitmentSection = () => {
   }, []);
 
   return (
-    <section className="pb-20 md:pb-24">
+    <section className="pb-8 md:pb-11">
       <div className="w-full px-6">
         <div ref={lineRef} className="h-px w-full bg-zinc-400/40" />
         <h5 ref={subTitleRef} className="mt-1 mb-5 inline-block text-zinc-400">
@@ -156,7 +156,7 @@ const CommitmentSection = () => {
                 <img
                   ref={addToImageRefs}
                   src={commitment.image}
-                  className="w-full object-cover"
+                  className="w-full object-cover object-center"
                 />
               </div>
             </li>
