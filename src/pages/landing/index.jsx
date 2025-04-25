@@ -2,6 +2,7 @@ import AboutSection from "./AboutSection";
 import CommitmentSection from "./CommitmentSection";
 import CoreIndustriesSection from "./CoreIndustriesSection";
 import EnablersSection from "./EnablersSection";
+import FAQSection from "./FAQSection";
 import HeroSection from "./HeroSection";
 
 const Landing = () => {
@@ -13,6 +14,7 @@ const Landing = () => {
         <CommitmentSection />
         <EnablersSection />
         <CoreIndustriesSection />
+        <FAQSection />
       </div>
     </div>
   );
