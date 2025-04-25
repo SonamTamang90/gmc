@@ -21,3 +21,20 @@ This project is a reimagined version of the Gelephu Mindfulness City website lan
 - GSAP
 - Tailwind CSS
 - Vite
+
+```bash
+### Clone the repository
+git clone https://github.com/yourusername/gelephu-mindfulness-landing.git
+
+### Navigate to the project directory
+
+cd gelephu-mindfulness-landing
+
+### Install dependencies
+
+npm install
+
+### Start the development server
+
+npm run dev
+```
