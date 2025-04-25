@@ -22,6 +22,8 @@ This project is a reimagined version of the Gelephu Mindfulness City website lan
 - Tailwind CSS
 - Vite
 
+## Installation
+
 ```bash
 ### Clone the repository
 git clone https://github.com/yourusername/gelephu-mindfulness-landing.git
