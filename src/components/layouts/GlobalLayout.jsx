@@ -1,5 +1,6 @@
 import { Outlet } from "react-router";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const GlobalLayout = () => {
   return (
@@ -8,6 +9,7 @@ const GlobalLayout = () => {
       <main className="flex-1">
         <Outlet />
       </main>
+      <Footer />
     </div>
   );
 };

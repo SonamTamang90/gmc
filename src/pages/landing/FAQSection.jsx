@@ -43,7 +43,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="bg-brand py-16">
+    <section className="bg-brand rounded-2xl py-16">
       <div className="w-full px-6">
         <div className="mb-2 h-px w-full bg-zinc-400/40" />
         <span className="mb-6 inline-block text-white">Common Questions</span>

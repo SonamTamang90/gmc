@@ -56,7 +56,7 @@ const HeroSection = () => {
           <source src="/hero.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/25 to-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
       <div className="relative size-full px-6 pb-11">
         <div className="flex h-full flex-col justify-end">
           <h1
