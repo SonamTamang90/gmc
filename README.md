@@ -1,6 +1,6 @@
-# REDESIGNED OF GELEPHU MINDFULNESS WEBSITE
+# GMC Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern recreation of the Gelephu Mindfulness City website built with React and GSAP animations.
 
 Currently, two official plugins are available:
 
