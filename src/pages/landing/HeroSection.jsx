@@ -53,7 +53,7 @@ const HeroSection = () => {
     <section className="sticky top-0 left-0 h-[550px] md:h-screen">
       <div className="absolute inset-0 size-full">
         <video muted autoPlay loop className="size-full object-cover">
-          <source src="/hero.mp4" type="video/mp4" />
+          <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
@@ -67,7 +67,8 @@ const HeroSection = () => {
           </h1>
           <p ref={paragraphRef} className="max-w-md text-white/90">
             An innovative urban development project that integrates economic
-            growth with mindfulness, holistic living, and sustainability.
+            growth with mindfulness, holistic living, and sustainability in
+            Kingdom of Bhutan.
           </p>
           <div ref={lineRef} className="my-6 h-px w-full bg-white/15" />
           <div className="flex items-center gap-2 text-white">

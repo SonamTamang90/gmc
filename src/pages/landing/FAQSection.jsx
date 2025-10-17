@@ -43,7 +43,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="bg-brand rounded-2xl py-16">
+    <section className="bg-[#151515] py-16">
       <div className="w-full px-6">
         <div className="mb-2 h-px w-full bg-zinc-400/40" />
         <span className="mb-6 inline-block text-white">Common Questions</span>
@@ -96,7 +96,7 @@ const FAQItem = ({ question, answer, isActive, onClick, index }) => {
         onClick={onClick}
         aria-expanded={isActive}
       >
-        <h3 className="pr-8 text-lg font-medium">{question}</h3>
+        <h3 className="pr-8 text-lg font-medium text-gray-200">{question}</h3>
         <span
           className={`transform transition-transform duration-300 ${isActive ? "rotate-45" : "rotate-0"}`}
         >
@@ -117,7 +117,7 @@ const FAQItem = ({ question, answer, isActive, onClick, index }) => {
         className="h-0 overflow-hidden opacity-0"
         aria-hidden={!isActive}
       >
-        <p className="max-w-2xl pt-4 pb-2 text-justify text-black/70">
+        <p className="max-w-2xl pt-4 pb-2 text-justify text-gray-400">
           {answer}
         </p>
       </div>

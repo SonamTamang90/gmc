@@ -1,8 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ScrollIndicator from "../../components/animations/ScrollIndicator";
 
 const industries = [
   {
@@ -107,7 +106,6 @@ const CoreIndustriesSection = () => {
                 className="industry-card w-[500px] flex-shrink-0 rounded-lg border border-zinc-100 bg-white p-8 shadow-md"
               >
                 <div className="mb-6 border-b border-zinc-100 pb-8">
-                  <span className="mb-2 block text-sm text-zinc-400">{`0${index + 1}`}</span>
                   <h3 className="mb-3 text-xl font-medium">{industry.name}</h3>
                   <img
                     src={industry.image}
@@ -119,11 +117,6 @@ const CoreIndustriesSection = () => {
                 </p>
               </div>
             ))}
-          </div>
-
-          {/* Scroll indicator */}
-          <div className="mt-8 flex items-center justify-start gap-4">
-            <ScrollIndicator text="Scroll to explore all sectors" />
           </div>
         </div>
       </div>
