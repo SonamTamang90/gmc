@@ -39,12 +39,14 @@ const AboutSection = () => {
             <FaQuoteLeft size={20} className="text-zinc-400/75" />
             <p
               ref={quoteTextRef}
-              className="mt-5 max-w-md text-justify text-sm text-zinc-600"
+              className="mt-5 max-w-lg text-justify text-sm text-zinc-600"
             >
-              Gelephu will become a gateway connecting Bhutan to the world and
-              the future. The road we have chosen is a gateway to the world – to
-              markets, capital, new ideas, knowledge, and technology towards our
-              future, and to chart our destiny.
+              The purpose of establishing this SAR is to create a vibrant
+              economic hub by providing a conducive business environment and
+              compelling incentives. It will be a Mindfulness City, encompassing
+              conscious and sustainable businesses, inspired by Buddhist
+              spiritual heritage, and distinguished by the uniqueness of the
+              Bhutanese identity.
             </p>
           </blockquote>
 

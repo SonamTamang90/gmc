@@ -66,9 +66,9 @@ const HeroSection = () => {
             Gelephu Mindfulness City
           </h1>
           <p ref={paragraphRef} className="max-w-md text-white/90">
-            An innovative urban development project that integrates economic
-            growth with mindfulness, holistic living, and sustainability in
-            Kingdom of Bhutan.
+            A Special Administrative Region (SAR) in the Kingdom of Bhutan,
+            integrating economic growth with mindfulness, holistic living, and
+            sustainability through innovative urban development.
           </p>
           <div ref={lineRef} className="my-6 h-px w-full bg-white/15" />
           <div className="flex items-center gap-2 text-white">

@@ -14,7 +14,7 @@ const Header = () => {
         </Link> */}
         <div>&nbsp;</div>
 
-        <button className="bg-brand flex cursor-pointer items-center gap-2 rounded-md px-6 py-1 text-white transition-opacity hover:opacity-75">
+        <button className="flex cursor-pointer items-center gap-2 rounded-md bg-gray-900 px-6 py-1 text-white transition-opacity hover:opacity-75">
           <span className="uppercase">Menu</span>
           <HiBars2 className="size-6" />
         </button>
