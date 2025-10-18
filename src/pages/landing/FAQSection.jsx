@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import PropTypes from "prop-types";
 
 const faqs = [
   {
@@ -43,10 +44,19 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="bg-[#151515] py-16">
-      <div className="w-full px-6">
-        <div className="mb-2 h-px w-full bg-zinc-400/40" />
-        <span className="mb-6 inline-block text-white">Common Questions</span>
+    <section className="relative bg-[#151515] py-16 overflow-hidden">
+      <div
+        className="absolute inset-0 opacity-15"
+        style={{
+          backgroundImage: 'url(/images/eternal-knot.svg)',
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'contain',
+        }}
+      />
+      <div className="w-full px-6 relative z-10">
+        <div className="mb-2 h-px w-full bg-zinc-600" />
+        <span className="mb-6 inline-block text-zinc-400">Common Questions</span>
         <h2 className="mb-12 max-w-md text-3xl font-medium text-white">
           Frequently Asked Questions
         </h2>
@@ -59,7 +69,6 @@ const FAQSection = () => {
               answer={faq.answer}
               isActive={activeIndex === index}
               onClick={() => toggleFAQ(index)}
-              index={index}
             />
           ))}
         </div>
@@ -68,7 +77,7 @@ const FAQSection = () => {
   );
 };
 
-const FAQItem = ({ question, answer, isActive, onClick, index }) => {
+const FAQItem = ({ question, answer, isActive, onClick }) => {
   const contentRef = useState(null);
 
   useGSAP(() => {
@@ -90,15 +99,15 @@ const FAQItem = ({ question, answer, isActive, onClick, index }) => {
   }, [isActive]);
 
   return (
-    <div className="border-b border-black/25 py-5">
+    <div className="border-b border-zinc-700 py-5">
       <button
         className="flex w-full items-center justify-between text-left"
         onClick={onClick}
         aria-expanded={isActive}
       >
-        <h3 className="pr-8 text-lg font-medium text-gray-200">{question}</h3>
+        <h3 className="pr-8 text-lg font-medium text-white">{question}</h3>
         <span
-          className={`transform transition-transform duration-300 ${isActive ? "rotate-45" : "rotate-0"}`}
+          className={`transform transition-transform duration-300 text-zinc-400 rounded-full border border-zinc-700 p-2 flex items-center justify-center ${isActive ? "rotate-45" : "rotate-0"}`}
         >
           <svg
             width="16"
@@ -117,12 +126,19 @@ const FAQItem = ({ question, answer, isActive, onClick, index }) => {
         className="h-0 overflow-hidden opacity-0"
         aria-hidden={!isActive}
       >
-        <p className="max-w-2xl pt-4 pb-2 text-justify text-gray-400">
+        <p className="max-w-2xl pt-4 pb-2 text-justify text-zinc-300">
           {answer}
         </p>
       </div>
     </div>
   );
+};
+
+FAQItem.propTypes = {
+  question: PropTypes.string.isRequired,
+  answer: PropTypes.string.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default FAQSection;
