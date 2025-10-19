@@ -86,9 +86,9 @@ const CoreIndustriesSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="h-screen overflow-hidden py-16">
+    <section ref={sectionRef} className="relative h-screen overflow-hidden py-16">
       <div className="w-full px-6">
-        <div ref={headerRef}>
+        <div ref={headerRef} className="relative z-10">
           <div className="mb-2 h-px w-full bg-zinc-400/40" />
           <span className="mb-6 inline-block text-zinc-400">
             Primary Economic Sectors
@@ -98,7 +98,7 @@ const CoreIndustriesSection = () => {
           </h2>
         </div>
 
-        <div className="relative">
+        <div className="relative z-10">
           <div ref={scrollerRef} className="flex gap-6 pr-24 pl-0">
             {industries.map((industry, index) => (
               <div

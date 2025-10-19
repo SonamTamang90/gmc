@@ -56,7 +56,7 @@ const SustainabilitySection = () => {
           Environmental Excellence
         </h5>
         <h2 className="mb-12 max-w-2xl text-2xl text-white sm:text-3xl md:mb-16 lg:mb-24">
-          Preserving ecosystems while pioneering progress
+          Leading the world in sustainable development
         </h2>
       </div>
 
@@ -74,7 +74,7 @@ const SustainabilitySection = () => {
         {/* Overlay Descriptions */}
         <div className="absolute inset-0 px-6 md:px-12 lg:px-16">
           {/* Left Side Features - Green Area */}
-          <div className="absolute left-6 top-1/4 max-w-[280px] md:left-12 md:max-w-xs lg:left-16 lg:max-w-sm">
+          <div className="absolute top-1/4 left-6 max-w-[280px] md:left-12 md:max-w-xs lg:left-16 lg:max-w-sm">
             {features
               .filter((f) => f.position === "left")
               .slice(0, 1)
@@ -83,9 +83,9 @@ const SustainabilitySection = () => {
                   <div className="mb-3 flex items-center gap-2 md:gap-3">
                     {getIconComponent(
                       feature.icon,
-                      "h-6 w-6 flex-shrink-0 md:h-7 md:w-7"
+                      "h-6 w-6 flex-shrink-0 md:h-7 md:w-7",
                     )}
-                    <h3 className="text-base font-semibold leading-tight md:text-lg lg:text-xl">
+                    <h3 className="text-base leading-tight font-semibold md:text-lg lg:text-xl">
                       {feature.title}
                     </h3>
                   </div>
@@ -97,7 +97,7 @@ const SustainabilitySection = () => {
           </div>
 
           {/* Right Side Features - Hydropower */}
-          <div className="absolute right-6 top-[10%] max-w-[280px] md:right-12 md:max-w-xs lg:right-16 lg:max-w-sm">
+          <div className="absolute top-[10%] right-6 max-w-[280px] md:right-12 md:max-w-xs lg:right-16 lg:max-w-sm">
             {features
               .filter((f) => f.position === "right")
               .map((feature, index) => (
@@ -105,9 +105,9 @@ const SustainabilitySection = () => {
                   <div className="mb-3 flex items-center gap-2 md:gap-3">
                     {getIconComponent(
                       feature.icon,
-                      "h-6 w-6 flex-shrink-0 md:h-7 md:w-7"
+                      "h-6 w-6 flex-shrink-0 md:h-7 md:w-7",
                     )}
-                    <h3 className="text-base font-semibold leading-tight md:text-lg lg:text-xl">
+                    <h3 className="text-base leading-tight font-semibold md:text-lg lg:text-xl">
                       {feature.title}
                     </h3>
                   </div>
@@ -128,9 +128,9 @@ const SustainabilitySection = () => {
                   <div className="mb-3 flex items-center gap-2 md:gap-3">
                     {getIconComponent(
                       feature.icon,
-                      "h-6 w-6 flex-shrink-0 md:h-7 md:w-7"
+                      "h-6 w-6 flex-shrink-0 md:h-7 md:w-7",
                     )}
-                    <h3 className="text-base font-semibold leading-tight md:text-lg lg:text-xl">
+                    <h3 className="text-base leading-tight font-semibold md:text-lg lg:text-xl">
                       {feature.title}
                     </h3>
                   </div>
@@ -160,7 +160,7 @@ const SustainabilitySection = () => {
             <div key={index} className="text-white">
               <div className="mb-3 flex items-center gap-3">
                 {getIconComponent(feature.icon, "h-7 w-7 flex-shrink-0")}
-                <h3 className="text-lg font-semibold leading-tight sm:text-xl">
+                <h3 className="text-lg leading-tight font-semibold sm:text-xl">
                   {feature.title}
                 </h3>
               </div>
