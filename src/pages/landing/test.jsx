@@ -3,7 +3,6 @@ import AnimatedLeafIcon from "../../components/icons/AnimatedLeafIcon";
 import AnimatedHydroIcon from "../../components/icons/AnimatedHydroIcon";
 import AnimatedEnergyIcon from "../../components/icons/AnimatedEnergyIcon";
 import { FadeIn } from "../../components/animations/FadeInStagger";
-import "./SustainabilitySection.css";
 
 const features = [
   {
@@ -69,7 +68,7 @@ const SustainabilitySection = () => {
           <div className="relative z-20 mb-8 grid grid-cols-3 gap-6 lg:gap-8">
             {features.map((feature, index) => (
               <FadeIn key={index} className="relative text-white">
-                <div className="feature-card rounded-lg border border-white/10 bg-black/50 p-4 backdrop-blur-sm lg:p-6">
+                <div className="rounded-lg border border-white/10 bg-black/50 p-4 backdrop-blur-sm lg:p-6">
                   <div className="mb-3 flex items-center gap-3">
                     {getIconComponent(
                       feature.icon,
@@ -85,22 +84,13 @@ const SustainabilitySection = () => {
                 </div>
                 {/* Pointer Line */}
                 <div
-                  className="line-container absolute left-1/2 z-30 w-0.5 -translate-x-1/2 bg-gradient-to-b from-white/20 via-white/15 to-transparent"
+                  className="absolute left-1/2 z-30 w-0.5 -translate-x-1/2 bg-gradient-to-b from-white/70 via-white/50 to-black"
                   style={{
                     height:
                       index === 0 ? "380px" : index === 1 ? "100px" : "380px",
                     top: "100%",
-                    animationDelay: `${index * 0.3}s`,
                   }}
-                >
-                  {/* Animated electricity current */}
-                  <div
-                    className="electricity-pulse"
-                    style={{
-                      animationDelay: `${index * 0.3}s`,
-                    }}
-                  />
-                </div>
+                />
               </FadeIn>
             ))}
           </div>
@@ -121,7 +111,7 @@ const SustainabilitySection = () => {
         {/* Map Image */}
         <div className="relative mx-auto mb-8 h-[400px] w-full max-w-2xl px-4 sm:h-[500px] sm:px-6">
           <img
-            src="/images/3D-map.png"
+            src="/images/gmc-final.png"
             alt="GMC Sustainability Map"
             className="h-full w-full rounded-lg object-cover"
           />
