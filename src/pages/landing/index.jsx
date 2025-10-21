@@ -4,6 +4,7 @@ import CoreIndustriesSection from "./CoreIndustriesSection";
 // import EnablersSection from "./EnablersSection";
 import FAQSection from "./FAQSection";
 import HeroSection from "./HeroSection";
+import NewsSection from "./NewsSection";
 import SustainabilitySection from "./SustainabilitySection";
 
 const Landing = () => {
@@ -17,6 +18,7 @@ const Landing = () => {
         {/* <EnablersSection /> */}
         <CoreIndustriesSection />
         <FAQSection />
+        <NewsSection />
       </div>
     </div>
   );
