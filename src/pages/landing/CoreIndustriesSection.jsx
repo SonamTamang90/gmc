@@ -45,12 +45,21 @@ const CoreIndustriesSection = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
-    const cards = gsap.utils.toArray(".industry-card");
-    const cardWidth = 500;
-    const cardGap = 24;
-    const totalWidth = cards.length * (cardWidth + cardGap);
-    const initialVisibleWidth = 2 * cardWidth + cardGap + cardWidth * 0.25;
-    const totalScrollDistance = totalWidth - initialVisibleWidth + 100;
+    const calculateScrollDistance = () => {
+      const cards = gsap.utils.toArray(".industry-card");
+      if (!cards.length) return 0;
+
+      const firstCard = cards[0];
+      const cardWidth = firstCard.offsetWidth;
+      const cardGap = 24;
+      const totalWidth = cards.length * (cardWidth + cardGap);
+      const viewportWidth = window.innerWidth;
+      const totalScrollDistance = totalWidth - viewportWidth + cardGap + 100;
+
+      return totalScrollDistance;
+    };
+
+    const totalScrollDistance = calculateScrollDistance();
 
     gsap.to(scrollerRef.current, {
       x: -totalScrollDistance,
@@ -86,14 +95,14 @@ const CoreIndustriesSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative h-screen overflow-hidden py-16">
-      <div className="w-full px-6">
+    <section ref={sectionRef} className="relative h-screen overflow-hidden py-8 sm:py-12 md:py-16">
+      <div className="w-full px-4 sm:px-6">
         <div ref={headerRef} className="relative z-10">
           <div className="mb-2 h-px w-full bg-zinc-400/40" />
-          <span className="mb-6 inline-block text-zinc-400">
+          <span className="mb-4 inline-block text-sm text-zinc-400 md:mb-6 md:text-base">
             Primary Economic Sectors
           </span>
-          <h2 className="mb-8 max-w-md text-3xl text-black md:mb-16">
+          <h2 className="mb-6 max-w-md text-xl text-black sm:text-2xl md:mb-16 md:text-3xl">
             Essential sectors powering economic growth.
           </h2>
         </div>
@@ -103,16 +112,16 @@ const CoreIndustriesSection = () => {
             {industries.map((industry, index) => (
               <div
                 key={industry.name}
-                className="industry-card w-[500px] flex-shrink-0 rounded-lg border border-zinc-100 bg-white p-8 shadow-md"
+                className="industry-card w-[300px] sm:w-[400px] md:w-[450px] lg:w-[500px] flex-shrink-0 rounded-lg border border-zinc-100 bg-white p-4 sm:p-6 md:p-8 shadow-md"
               >
-                <div className="mb-6 border-b border-zinc-100 pb-8">
-                  <h3 className="mb-3 text-xl font-medium">{industry.name}</h3>
+                <div className="mb-4 border-b border-zinc-100 pb-4 sm:mb-6 sm:pb-6 md:pb-8">
+                  <h3 className="mb-2 text-lg font-medium sm:mb-3 sm:text-xl">{industry.name}</h3>
                   <img
                     src={industry.image}
                     className="aspect-[16/10] rounded-md object-cover"
                   />
                 </div>
-                <p className="text-justify leading-relaxed text-zinc-600">
+                <p className="text-sm leading-relaxed text-zinc-600 sm:text-base text-justify">
                   {industry.desc}
                 </p>
               </div>

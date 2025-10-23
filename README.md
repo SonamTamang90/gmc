@@ -1,6 +1,6 @@
 # Gelephu Mindfulness City (GMC)
 
-A modern, animated landing page for Gelephu Mindfulness City, built with React and GSAP. This project showcases the vision of GMC through engaging animations and a clean, responsive interface.
+A modern, animated home page for Gelephu Mindfulness City, built with React and GSAP. This project showcases the vision of GMC through engaging animations and a clean, responsive interface.
 
 ![GMC Preview](public/docs/screenshots/preview.png)
 
@@ -51,9 +51,9 @@ gmc/
 ├── src/
 │   ├── components/     # Reusable UI components
 │   ├── pages/          # Page components
-│   ├── assets/         # Images, fonts, and static assets
 │   └── App.jsx         # Main application component
-├── public/             # Public assets
+├── public/
+│   └── assets/         # Images, fonts, and static assets
 └── package.json        # Project dependencies
 ```
 
