@@ -6,32 +6,32 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const industries = [
   {
     name: "Agri Tech & Forestry",
-    desc: "GMC provides an opportunity to scale up the export-oriented Bhutan brand agri-food sector with the majority of the local workforce currently employed in the agriculture sector.",
+    desc: "Export-oriented agri-food sector with sustainable farming and forestry innovation.",
     image: "/images/photo-2.JPG",
   },
   {
     name: "Finance",
-    desc: "GMC provides an opportunity to scale up the export-oriented Bhutan brand agri-food sector with the majority of the local workforce currently employed in the agriculture sector.",
+    desc: "Robust financial ecosystem supporting economic growth and investments.",
     image: "/images/photo-3.JPG",
   },
   {
     name: "Health & Wellness",
-    desc: "GMC provides an opportunity to scale up the export-oriented Bhutan brand agri-food sector with the majority of the local workforce currently employed in the agriculture sector.",
+    desc: "World-class health services leveraging natural resources and holistic practices.",
     image: "/images/photo-4.JPG",
   },
   {
     name: "Airport Economy",
-    desc: "GMC provides an opportunity to scale up the export-oriented Bhutan brand agri-food sector with the majority of the local workforce currently employed in the agriculture sector.",
+    desc: "Integrated infrastructure boosting connectivity, trade, and tourism.",
     image: "/images/photo-5.JPG",
   },
   {
     name: "Education & Knowledge",
-    desc: "GMC provides an opportunity to scale up the export-oriented Bhutan brand agri-food sector with the majority of the local workforce currently employed in the agriculture sector.",
+    desc: "Centers of excellence developing skilled workforce for the future.",
     image: "/images/photo-6.JPG",
   },
   {
     name: "Green Energy & Tech Industry",
-    desc: "GMC provides an opportunity to scale up the export-oriented Bhutan brand agri-food sector with the majority of the local workforce currently employed in the agriculture sector.",
+    desc: "Renewable energy and technology for sustainable development.",
     image: "/images/photo-1.JPG",
   },
 ];
@@ -45,29 +45,25 @@ const CoreIndustriesSection = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
-    const calculateScrollDistance = () => {
-      const cards = gsap.utils.toArray(".industry-card");
-      if (!cards.length) return 0;
+    const cards = gsap.utils.toArray(".industry-card");
+    if (!cards.length) return;
 
-      const firstCard = cards[0];
-      const cardWidth = firstCard.offsetWidth;
-      const cardGap = 24;
-      const totalWidth = cards.length * (cardWidth + cardGap);
-      const viewportWidth = window.innerWidth;
-      const totalScrollDistance = totalWidth - viewportWidth + cardGap + 100;
+    const getMaxScroll = () => {
+      const scrollerWidth = scrollerRef.current.scrollWidth;
+      const containerPadding = window.innerWidth >= 640 ? 24 : 16; // sm:px-6 = 24, px-4 = 16
+      const viewportWidth = window.innerWidth - containerPadding * 2;
 
-      return totalScrollDistance;
+      // Add extra padding to ensure last card is fully visible
+      return scrollerWidth - viewportWidth + 96; // pr-24 = 96px
     };
 
-    const totalScrollDistance = calculateScrollDistance();
-
-    gsap.to(scrollerRef.current, {
-      x: -totalScrollDistance,
-      ease: "power1.inOut",
+    let scrollTween = gsap.to(scrollerRef.current, {
+      x: () => -getMaxScroll(),
+      ease: "none",
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: `+=${totalScrollDistance + window.innerHeight}`,
+        end: () => `+=${getMaxScroll() + window.innerHeight * 2}`,
         pin: true,
         scrub: 1,
         invalidateOnRefresh: true,
@@ -82,20 +78,17 @@ const CoreIndustriesSection = () => {
       },
     });
 
-    ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top top",
-      end: "bottom bottom",
-      onUpdate: (self) => {
-        if (self.progress > 0.95) {
-          gsap.set(scrollerRef.current, { x: -totalScrollDistance });
-        }
-      },
-    });
+    return () => {
+      scrollTween.scrollTrigger?.kill();
+      scrollTween.kill();
+    };
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative h-screen overflow-hidden py-8 sm:py-12 md:py-16">
+    <section
+      ref={sectionRef}
+      className="relative h-screen overflow-hidden py-8 sm:py-12 md:py-16"
+    >
       <div className="w-full px-4 sm:px-6">
         <div ref={headerRef} className="relative z-10">
           <div className="mb-2 h-px w-full bg-zinc-400/40" />
@@ -109,19 +102,24 @@ const CoreIndustriesSection = () => {
 
         <div className="relative z-10">
           <div ref={scrollerRef} className="flex gap-6 pr-24 pl-0">
-            {industries.map((industry, index) => (
+            {industries.map((industry) => (
               <div
                 key={industry.name}
-                className="industry-card w-[300px] sm:w-[400px] md:w-[450px] lg:w-[500px] flex-shrink-0 rounded-lg border border-zinc-100 bg-white p-4 sm:p-6 md:p-8 shadow-md"
+                className="industry-card group w-[300px] flex-shrink-0 cursor-pointer rounded-lg border border-zinc-100 bg-white p-4 shadow-md transition-shadow duration-300 hover:shadow-xl sm:w-[400px] sm:p-6 md:w-[450px] md:p-6 lg:w-[440px]"
               >
-                <div className="mb-4 border-b border-zinc-100 pb-4 sm:mb-6 sm:pb-6 md:pb-8">
-                  <h3 className="mb-2 text-lg font-medium sm:mb-3 sm:text-xl">{industry.name}</h3>
-                  <img
-                    src={industry.image}
-                    className="aspect-[16/10] rounded-md object-cover"
-                  />
+                <div className="mb-4 border-b border-zinc-100 pb-4 sm:mb-6 sm:pb-6 md:pb-6">
+                  <div className="overflow-hidden rounded-md">
+                    <img
+                      src={industry.image}
+                      className="aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
                 </div>
-                <p className="text-sm leading-relaxed text-zinc-600 sm:text-base text-justify">
+                <h3 className="relative mb-2 inline-block font-medium uppercase sm:mb-3 sm:text-sm">
+                  {industry.name}
+                  <span className="absolute bottom-0 left-0 h-[1px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
+                </h3>
+                <p className="text-sm leading-relaxed text-zinc-600">
                   {industry.desc}
                 </p>
               </div>

@@ -119,11 +119,11 @@ const SustainabilitySection = () => {
       {/* Mobile/Tablet: Stacked Layout */}
       <div className="block md:hidden">
         {/* Map Image */}
-        <div className="relative mx-auto mb-8 h-[400px] w-full max-w-2xl px-4 sm:h-[500px] sm:px-6">
+        <div className="relative mx-auto mb-8 w-full max-w-2xl px-4 sm:px-6">
           <img
             src="/images/3D-map.png"
             alt="GMC Sustainability Map"
-            className="h-full w-full rounded-lg object-cover"
+            className="h-auto w-full rounded-lg object-contain"
           />
         </div>
 
