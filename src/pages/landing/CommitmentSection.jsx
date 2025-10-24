@@ -1,6 +1,5 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 
 const commitments = [
@@ -31,8 +30,6 @@ const CommitmentSection = () => {
   commitmentRefs.current = [];
   descRefs.current = [];
   imageRefs.current = [];
-
-  gsap.registerPlugin(ScrollTrigger);
 
   const addToCommitmentRefs = (el) => {
     if (el && !commitmentRefs.current.includes(el)) {

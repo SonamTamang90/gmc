@@ -22,39 +22,25 @@ const App = () => {
     // Force scroll to top immediately
     window.scrollTo(0, 0);
 
-    // Wait for images and DOM to be fully ready
-    const initializeScrollTrigger = () => {
+    // Minimal delay to show loading screen, then render content
+    const readyTimer = setTimeout(() => {
       setIsReady(true);
+    }, 100);
 
-      // Multiple refreshes to ensure accuracy
-      ScrollTrigger.refresh();
-
-      // Additional refresh after a delay to catch any late-loading content
-      setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 500);
-    };
-
-    // Check if images are already loaded
-    const images = Array.from(document.images);
-    const imagePromises = images.map((img) => {
-      if (img.complete) return Promise.resolve();
-      return new Promise((resolve) => {
-        img.addEventListener('load', resolve);
-        img.addEventListener('error', resolve); // Handle failed images
-      });
-    });
-
-    // Wait for all images or timeout after 3 seconds
-    Promise.race([
-      Promise.all(imagePromises),
-      new Promise((resolve) => setTimeout(resolve, 3000))
-    ]).then(initializeScrollTrigger);
-
-    return () => {
-      // Cleanup
-    };
+    return () => clearTimeout(readyTimer);
   }, []);
+
+  // Refresh ScrollTrigger after content is rendered
+  useEffect(() => {
+    if (!isReady) return;
+
+    // Wait a bit for components to mount and register their ScrollTriggers
+    const refreshTimer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 300);
+
+    return () => clearTimeout(refreshTimer);
+  }, [isReady]);
 
   if (!isReady) {
     return (

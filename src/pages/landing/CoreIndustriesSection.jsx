@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const industries = [
   {
@@ -40,9 +39,6 @@ const CoreIndustriesSection = () => {
   const sectionRef = useRef(null);
   const scrollerRef = useRef(null);
   const headerRef = useRef(null);
-
-  // Register ScrollTrigger plugin
-  gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
     const cards = gsap.utils.toArray(".industry-card");

@@ -1,13 +1,10 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 
 const EnablersSection = () => {
   const enablerItemOne = useRef();
   const enablerItemTwo = useRef();
-
-  gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
     gsap.from(enablerItemOne.current, {
@@ -20,7 +17,7 @@ const EnablersSection = () => {
         end: "top 50%",
         toggleActions: "play none none none",
         markers: false,
-        once: false,
+        once: true,
       },
     });
 
@@ -34,7 +31,7 @@ const EnablersSection = () => {
         end: "top 50%",
         toggleActions: "play none none none",
         markers: false,
-        once: false,
+        once: true,
       },
     });
   }, []);

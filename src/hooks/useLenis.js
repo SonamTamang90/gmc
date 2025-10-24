@@ -13,8 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
  */
 export const useLenis = (options = {}) => {
   useEffect(() => {
-    // Clear all existing ScrollTriggers on mount
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    // Don't kill ScrollTriggers - let components manage their own
 
     // Initialize Lenis with custom options
     const lenis = new Lenis({
