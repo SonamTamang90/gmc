@@ -60,7 +60,7 @@ const CommitmentSection = () => {
         end: "top 50%",
         toggleActions: "play none none reset",
         markers: false,
-        once: false,
+        once: true,
       },
     });
 
@@ -75,7 +75,7 @@ const CommitmentSection = () => {
         end: "top 50%",
         toggleActions: "play none none reset",
         markers: false,
-        once: false,
+        once: true,
       },
     });
 
@@ -116,10 +116,6 @@ const CommitmentSection = () => {
         "<",
       );
     });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
   }, []);
 
   return (

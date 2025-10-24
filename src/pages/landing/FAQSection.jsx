@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import PropTypes from "prop-types";
@@ -78,7 +78,7 @@ const FAQSection = () => {
 };
 
 const FAQItem = ({ question, answer, isActive, onClick }) => {
-  const contentRef = useState(null);
+  const contentRef = useRef(null);
 
   useGSAP(() => {
     if (isActive) {
