@@ -1,10 +1,7 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PropTypes from "prop-types";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const newsArticles = [
   {
@@ -65,7 +62,7 @@ const NewsCard = ({ article }) => {
         start: "top 85%",
         end: "top 65%",
         toggleActions: "play none none reset",
-        once: false,
+        once: true,
       },
     });
   }, []);

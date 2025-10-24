@@ -1,8 +1,6 @@
-import { createContext, useContext, useEffect, useRef } from "react";
+import { createContext, useContext, useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useGSAP } from "@gsap/react";
 
 const FadeInStaggerContext = createContext(false);
 
@@ -14,7 +12,7 @@ export const FadeIn = ({ children, ...props }: FadeInProps) => {
   const elementRef = useRef<HTMLDivElement>(null);
   const isInStaggerGroup = useContext(FadeInStaggerContext);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!elementRef.current || isInStaggerGroup) return;
 
     const element = elementRef.current;
@@ -41,15 +39,7 @@ export const FadeIn = ({ children, ...props }: FadeInProps) => {
         },
       }
     );
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.vars.trigger === element) {
-          trigger.kill();
-        }
-      });
-    };
-  }, [isInStaggerGroup]);
+  }, { dependencies: [isInStaggerGroup], scope: elementRef });
 
   return (
     <div ref={elementRef} {...props}>
@@ -70,7 +60,7 @@ export const FadeInStagger = ({
 }: FadeInStaggerProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!containerRef.current) return;
 
     const container = containerRef.current;
@@ -99,15 +89,7 @@ export const FadeInStagger = ({
         },
       }
     );
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.vars.trigger === container) {
-          trigger.kill();
-        }
-      });
-    };
-  }, [faster]);
+  }, { dependencies: [faster], scope: containerRef });
 
   return (
     <FadeInStaggerContext.Provider value={true}>

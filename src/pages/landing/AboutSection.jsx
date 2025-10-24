@@ -3,9 +3,6 @@ import ScrollTextReveal from "../../components/animations/ScrollTextReveal";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 const AboutSection = () => {
   const quoteTextRef = useRef(null);
 
@@ -20,10 +17,10 @@ const AboutSection = () => {
         end: "top 50%",
         toggleActions: "play none none reset",
         markers: false,
-        once: false,
+        once: true,
       },
     });
-  });
+  }, []);
 
   return (
     <section className="relative py-20 md:py-24">

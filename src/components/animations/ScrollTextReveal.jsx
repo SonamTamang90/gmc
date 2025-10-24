@@ -1,9 +1,7 @@
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PropTypes from "prop-types";
-import { useEffect, useRef } from "react";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 
 const ScrollTextReveal = ({
   children,
@@ -14,7 +12,7 @@ const ScrollTextReveal = ({
 }) => {
   const textRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!textRef.current) return;
     const element = textRef.current;
 
@@ -55,11 +53,6 @@ const ScrollTextReveal = ({
     });
 
     return () => {
-      if (ScrollTrigger.getAll().length) {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      }
-      tl.kill();
-
       element.innerHTML = originalHtml;
     };
   }, [startColor, endColor, staggerAmount, children]);
