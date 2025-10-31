@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import { useEffect, useState } from "react";
 import GlobalLayout from "./components/layouts/GlobalLayout";
-import Landing from "./pages/landing";
+import Home from "./pages/home";
+import About from "./pages/about";
 import { useLenis } from "./hooks/useLenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -61,7 +62,8 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<GlobalLayout />}>
-          <Route index path="/" element={<Landing />} />
+          <Route index path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
         </Route>
       </Routes>
     </BrowserRouter>

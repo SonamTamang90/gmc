@@ -7,7 +7,7 @@ import HeroSection from "./HeroSection";
 import NewsSection from "./NewsSection";
 import SustainabilitySection from "./SustainabilitySection";
 
-const Landing = () => {
+const Home = () => {
   return (
     <div>
       <HeroSection />
@@ -24,4 +24,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default Home;

@@ -6,11 +6,11 @@ A modern, animated home page for Gelephu Mindfulness City, built with React and 
 
 ## Overview
 
-Gelephu Mindfulness City is an ambitious urban development project representing the future of Bhutan. This landing page serves as the digital gateway for visitors to understand the project's vision, sustainability goals, and key initiatives.
+Gelephu Mindfulness City is an ambitious urban development project representing the future of Bhutan. This home page serves as the digital gateway for visitors to understand the project's vision, sustainability goals, and key initiatives.
 
 ### Why This Project?
 
-The current GMC website doesn't reflect the modern, forward-thinking vision of what GMC represents. As a project that embodies Bhutan's future, it deserves a digital presence that matches its innovative spirit. This reimagined landing page aims to bridge that gap with:
+The current GMC website doesn't reflect the modern, forward-thinking vision of what GMC represents. As a project that embodies Bhutan's future, it deserves a digital presence that matches its innovative spirit. This reimagined home page aims to bridge that gap with:
 
 - Modern, engaging animations that bring the vision to life
 - Clean, contemporary design language

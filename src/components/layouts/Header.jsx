@@ -24,7 +24,7 @@ const Header = () => {
   const menuItemsRef = useRef([]);
 
   const menuItems = [
-    { title: "About Us", href: "#about" },
+    { title: "About Us", href: "/about" },
     { title: "Engage", href: "#engage" },
     { title: "News", href: "#news" },
     { title: "Our Team", href: "#industries" },
