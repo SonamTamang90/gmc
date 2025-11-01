@@ -1,4 +1,5 @@
 import { HiChevronDoubleDown } from "react-icons/hi";
+import TeamSection from "./TeamSection";
 
 const About = () => {
   return (
@@ -8,7 +9,7 @@ const About = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/images/gelephu-airport.jpg"
+            src="/images/photo-8.png"
             alt="Gelephu Airport"
             className="h-full w-full object-cover"
           />
@@ -98,6 +99,9 @@ const About = () => {
               />
             </div>
           </div>
+
+          {/* Team Section */}
+          <TeamSection />
         </div>
       </div>
     </div>
