@@ -4,7 +4,7 @@ const TeamSection = () => {
   const teamMembers = [
     {
       id: 1,
-      name: "Lars Johansen",
+      name: "Thinley Choden",
       role: "SENIOR ARCHITECT",
       image: "/images/team-one.png",
       social: {
@@ -26,7 +26,7 @@ const TeamSection = () => {
     },
     {
       id: 3,
-      name: "Ingrid Berg",
+      name: "Susmita Rai",
       role: "CREATIVE DIRECTOR",
       image: "/images/team-three.png",
       social: {
@@ -48,9 +48,9 @@ const TeamSection = () => {
     },
     {
       id: 5,
-      name: "Marcus Hansen",
+      name: "Yonten Jamtsho",
       role: "SUSTAINABILITY DIRECTOR",
-      image: "/images/team-five.png",
+      image: "/images/team-seven.png",
       social: {
         instagram: "#",
         facebook: "#",
@@ -59,7 +59,7 @@ const TeamSection = () => {
     },
     {
       id: 6,
-      name: "Sofia Nielsen",
+      name: "Mark Nguguen",
       role: "OPERATIONS MANAGER",
       image: "/images/team-six.png",
       social: {
@@ -104,7 +104,7 @@ const TeamSection = () => {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="aspect-[4/5] w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  className="aspect-[4/5] w-full object-cover object-top grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
                 />
               </div>
 

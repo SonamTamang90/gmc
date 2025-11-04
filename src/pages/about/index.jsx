@@ -1,5 +1,6 @@
 import { HiChevronDoubleDown } from "react-icons/hi";
 import TeamSection from "./TeamSection";
+import PartnerSection from "./PartnerSection";
 
 const About = () => {
   return (
@@ -102,6 +103,9 @@ const About = () => {
 
           {/* Team Section */}
           <TeamSection />
+
+          {/* Partner Section */}
+          <PartnerSection />
         </div>
       </div>
     </div>

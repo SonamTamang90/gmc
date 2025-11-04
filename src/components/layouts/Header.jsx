@@ -207,6 +207,15 @@ const Header = () => {
         </div>
       </div>
 
+      {/* Logo - Fixed Position */}
+      <a
+        href="/"
+        className="fixed top-6 left-6 z-50 flex items-center transition-opacity hover:opacity-80"
+        aria-label="Go to homepage"
+      >
+        <img src="/images/logo.png" alt="GMC Logo" className="h-12 w-12" />
+      </a>
+
       {/* Menu Button - Fixed Position */}
       <button
         onClick={toggleMenu}
