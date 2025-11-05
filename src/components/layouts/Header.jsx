@@ -26,9 +26,9 @@ const Header = () => {
   const menuItems = [
     { title: "About Us", href: "/about" },
     { title: "Engage", href: "#engage" },
-    { title: "News", href: "#news" },
+    { title: "News", href: "/news" },
     { title: "Our Team", href: "#industries" },
-    { title: "Careers", href: "#careers" },
+    { title: "Careers", href: "/careers" },
     { title: "FAQ", href: "#faq" },
   ];
 

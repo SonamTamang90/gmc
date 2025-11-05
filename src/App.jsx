@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import GlobalLayout from "./components/layouts/GlobalLayout";
 import Home from "./pages/home";
 import About from "./pages/about";
+import News from "./pages/news";
+import Careers from "./pages/careers";
 import { useLenis } from "./hooks/useLenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -45,14 +47,16 @@ const App = () => {
 
   if (!isReady) {
     return (
-      <div style={{
-        width: '100vw',
-        height: '100vh',
-        backgroundColor: 'white',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          backgroundColor: "white",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         {/* Optional: Add a subtle loading indicator */}
       </div>
     );
@@ -64,6 +68,8 @@ const App = () => {
         <Route element={<GlobalLayout />}>
           <Route index path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/careers" element={<Careers />} />
         </Route>
       </Routes>
     </BrowserRouter>
