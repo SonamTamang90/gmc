@@ -41,7 +41,7 @@ const About = () => {
 
       {/* Content Section */}
       <div className="relative overflow-x-hidden rounded-tl-2xl rounded-tr-2xl bg-white">
-        <div className="container mx-auto max-w-7xl px-8 py-24 md:py-32">
+        <div className="container mx-auto max-w-7xl px-8 pt-24 md:pt-32">
           {/* About GMC Section - Two Column Layout */}
           <div className="grid grid-cols-1 gap-12 md:grid-cols-5 md:gap-20 lg:gap-32">
             {/* Left Column - Heading (40%) */}

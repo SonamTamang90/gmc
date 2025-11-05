@@ -26,25 +26,16 @@ const PartnerSection = () => {
     },
   ];
 
-  const photos = [
-    {
-      id: 1,
-      src: "/images/partner-photo-one.png",
-      alt: "Partner collaboration",
-    },
-    {
-      id: 2,
-      src: "/images/partner-photo-two.png",
-      alt: "Partnership event",
-    },
-  ];
+  // Duplicate partners array for seamless infinite scroll
+  const duplicatedPartners = [...partners, ...partners];
 
   return (
     <section className="pb-12 md:pb-16">
       <div className="container mx-auto max-w-7xl px-8">
+        <div className="mb-2 h-px w-full bg-zinc-400/40" />
+
         {/* Section Header */}
-        <div className="mb-16 md:mb-20">
-          <div className="mb-2 h-px w-full bg-zinc-400/40" />
+        <div className="mb-12 md:mb-16">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-20 lg:gap-32">
             {/* Left Column - Heading */}
             <div className="md:col-span-2">
@@ -63,43 +54,48 @@ const PartnerSection = () => {
           </div>
         </div>
 
-        {/* Two Column Layout */}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
-          {/* Left Column - Photos */}
-          <div className="space-y-6">
-            {photos.map((photo) => (
-              <div key={photo.id} className="overflow-hidden rounded-lg">
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  className="h-auto w-full object-cover"
-                />
+        {/* Infinite Horizontal Scroll Container */}
+        <div className="relative overflow-hidden">
+          <style>
+            {`
+              @keyframes scroll {
+                0% {
+                  transform: translateX(0);
+                }
+                100% {
+                  transform: translateX(-50%);
+                }
+              }
+              .animate-scroll {
+                animation: scroll 30s linear infinite;
+              }
+              .animate-scroll:hover {
+                animation-play-state: paused;
+              }
+            `}
+          </style>
+
+          {/* Left Fade */}
+          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-32 bg-gradient-to-r from-white to-transparent md:w-48" />
+
+          {/* Right Fade */}
+          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-32 bg-gradient-to-l from-white to-transparent md:w-48" />
+
+          <div className="flex animate-scroll">
+            {duplicatedPartners.map((partner, index) => (
+              <div
+                key={`${partner.id}-${index}`}
+                className="group mx-4 flex-shrink-0"
+              >
+                <div className="flex h-32 w-48 items-center justify-center overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:scale-105 hover:border-gray-300 hover:shadow-md">
+                  <img
+                    src={partner.logo}
+                    alt={`Partner ${partner.id}`}
+                    className="h-12 w-auto object-contain opacity-70 invert grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                  />
+                </div>
               </div>
             ))}
-          </div>
-
-          {/* Divider Line */}
-          <div className="relative">
-            <div className="absolute top-0 left-0 hidden h-full w-px bg-zinc-400/40 md:-ml-8 md:block" />
-
-            {/* Right Column - Partner Logos */}
-            <div className="grid grid-cols-2 gap-6">
-              {partners.map((partner) => (
-                <div
-                  key={partner.id}
-                  className="group flex items-center justify-center"
-                >
-                  {/* Logo Container */}
-                  <div className="flex h-24 w-full items-center justify-center overflow-hidden rounded-lg bg-gray-900 p-6 transition-all duration-300 group-hover:bg-gray-800">
-                    <img
-                      src={partner.logo}
-                      alt={`Partner ${partner.id}`}
-                      className="max-h-full max-w-full object-contain brightness-0 invert transition-all duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
