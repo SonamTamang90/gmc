@@ -25,11 +25,11 @@ const Header = () => {
 
   const menuItems = [
     { title: "About Us", href: "/about" },
-    { title: "Engage", href: "#engage" },
+    { title: "Our Team", href: "/about#team" },
     { title: "News", href: "/news" },
-    { title: "Our Team", href: "#industries" },
     { title: "Careers", href: "/careers" },
     { title: "FAQ", href: "#faq" },
+    { title: "Contact", href: "/contact" },
   ];
 
   // Store menu height for pushing content
@@ -109,6 +109,29 @@ const Header = () => {
     window.addEventListener("click", handleClick);
     return () => window.removeEventListener("click", handleClick);
   }, [setIsMenuOpen]);
+
+  // Handle hash navigation and smooth scroll
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        // Small delay to ensure the page has loaded
+        setTimeout(() => {
+          const element = document.querySelector(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 100);
+      }
+    };
+
+    // Scroll on initial load
+    scrollToHash();
+
+    // Listen for hash changes
+    window.addEventListener("hashchange", scrollToHash);
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, []);
 
   return (
     <>
